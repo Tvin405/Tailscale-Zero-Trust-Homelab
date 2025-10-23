@@ -21,7 +21,7 @@ System Architecture
   - Tailscale used to interconnect all nodes under a single identity and enforce zero-trust policies
 - Core Concepts Used:
   - MagicDNS for hostname-based communication between nodes
-  - ACLs (Access Control Lists) to manage least-privilege access
+  - Access Control Lists to manage least-privilege access
   - Exit Nodes for encrypted remote browsing through my home network
   - Subnet Routing for LXC and Docker access within Proxmox
 
@@ -116,7 +116,7 @@ Security Outcomes
 
 ---
 
-Technologies Used
+Technology Used
 - Tailscale:	VPN and Zero-Trust network orchestration
 - WireGuard:	Encryption backbone for mesh connectivity
 - Proxmox VE:	Virtualization platform for hosting containers and VMs
