@@ -27,6 +27,18 @@ System Architecture
 
 --- 
 
+Technology Used
+- Tailscale:	VPN and Zero-Trust network orchestration
+- WireGuard:	Encryption backbone for mesh connectivity
+- Proxmox VE:	Virtualization platform for hosting containers and VMs
+- Pi-hole:	DNS sinkhole and network-level ad-blocker
+- MagicDNS:	Hostname resolution and internal name mapping
+- ACL Policies:	Access control and least-privilege enforcement
+- Docker:	Service containerization
+- Ubuntu Server / Windows 11	Operating systems for deployment
+
+---
+
 Deployment steps
 1. Installing Tailscale
 - I made an account on tailscales offical website and started generating auth keys
@@ -36,8 +48,8 @@ Deployment steps
     - On Ubuntu / LXC containers, I generated an install script that looked like:
         curl -fsSL https://tailscale.com/install.sh | sh
         tailscale up --authkey <your-auth-key> --hostname <device-name>
-  <img width="1287" height="1262" alt="Screenshot 2025-10-21 165839" src="https://github.com/user-attachments/assets/78e103f6-89e8-4f70-95ed-ed04d424ec4d" />
-
+<img width="1287" height="1262" alt="Screenshot 2025-10-21 165839" src="https://github.com/user-attachments/assets/78e103f6-89e8-4f70-95ed-ed04d424ec4d" />
+<img width="1002" height="129" alt="Screenshot 2025-10-21 180425" src="https://github.com/user-attachments/assets/86c08c47-3904-4f76-ae3c-5f1a5a2f42d7" />
     - On Windows:
         I added the device by having tailscale send a connection link to my email
         I then downloaded tailscale on the device and connected it to my personal tailnet
@@ -50,6 +62,7 @@ Deployment steps
 2. Establishing a Secure Mesh Network
 - Once all systems were connected, Tailscale automatically formed a peer-to-peer mesh network using the WireGuard protocol.
 - This allowed every device to communicate directly and securely, even across NAT or different subnets, without manual port forwarding.
+<img width="214" height="504" alt="Screenshot 2025-10-21 170536" src="https://github.com/user-attachments/assets/e9149d84-e5ec-4768-9aaa-0bdfc5b120ca" />
 
 --- 
 
@@ -122,15 +135,15 @@ Security Outcomes
 
 ---
 
-Technology Used
-- Tailscale:	VPN and Zero-Trust network orchestration
-- WireGuard:	Encryption backbone for mesh connectivity
-- Proxmox VE:	Virtualization platform for hosting containers and VMs
-- Pi-hole:	DNS sinkhole and network-level ad-blocker
-- MagicDNS:	Hostname resolution and internal name mapping
-- ACL Policies:	Access control and least-privilege enforcement
-- Docker:	Service containerization
-- Ubuntu Server / Windows 11	Operating systems for deployment
+Issues Faced
+- After the download process on my LXC container services like pihole, jellyfin, and vaultwarden I noticed the tailscale up command wouldnt work and the dashboard wouldnt show the device
+<img width="1005" height="149" alt="Screenshot 2025-10-21 180508" src="https://github.com/user-attachments/assets/15674bdc-be9c-4385-9459-5118e4da1adf" />
+- To fix this issue due to the service being an LXC you need to open the LXC config file while on proxmox root and add:
+<img width="648" height="65" alt="Screenshot 2025-10-21 181155" src="https://github.com/user-attachments/assets/44d3814d-a4c9-475e-93ab-237617522297" />
+      nano /etx/pve/lxc/<pctID>.conf # to enter the LXC config file
+- After adding these lines you need to start and then stop the LXC container so the changes will take place, then run tailscale up, you should get a direct link to tailscale to connect the device
+<img width="321" height="88" alt="Screenshot 2025-10-21 181603" src="https://github.com/user-attachments/assets/a1fdd233-1280-496b-b0f6-e96fee297226" />
+<img width="361" height="115" alt="Screenshot 2025-10-21 181657" src="https://github.com/user-attachments/assets/dc43652f-16dc-49bc-a664-743c397f702a" />
 
 ---
 
