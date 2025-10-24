@@ -30,13 +30,13 @@ System Architecture
 Deployment steps
 1. Installing Tailscale
 - I made an account on tailscales offical website and started generating auth keys
-<img src="https://github.com/user-attachments/assets/your-upload-id-for-165808" alt="Screenshot 2025-10-21 165808" width="600" height="300">
+<img src="https://github.com/user-attachments/assets/your-upload-id-for-165808" alt="Screenshot 2025-10-21 165808" width="600" height="300"><br>
 - I began by installing Tailscale on each system in my network, by going to add device and then picking the OS system of the device
 - Based on the operating system picked youll be prompted to install tailscale or run the install script
     - On Ubuntu / LXC containers, I generated an install script that looked like:
         curl -fsSL https://tailscale.com/install.sh | sh
         tailscale up --authkey <your-auth-key> --hostname <device-name>
-<img src="https://github.com/user-attachments/assets/your-upload-id-for-165839" alt="Screenshot 2025-10-21 165839" width="600" height="300">
+<img src="https://github.com/user-attachments/assets/your-upload-id-for-165839" alt="Screenshot 2025-10-21 165839" width="600" height="300"><br>
     - On Windows:
         I added the device by having tailscale send a connection link to my email
         I then downloaded tailscale on the device and connected it to my personal tailnet
