@@ -29,20 +29,19 @@ System Architecture
 
 Deployment steps
 1. Installing Tailscale
-- I made an account on tailscales offical website and then had them generate me download code based on my system
-- I began by installing Tailscale on each system in my network:
-- On Ubuntu / LXC containers:
-      - curl -fsSL https://tailscale.com/install.sh | sh
+- I made an account on tailscales offical website and started generating auth keys
+<img src="TailscaleVPN/images/Screenshot%202025-10-21%20165808.png" alt="Tailscale Machines Page" width="600" height="300"><br>
+- I began by installing Tailscale on each system in my network, by going to add device and then picking the OS system of the device
+- Based on the operating system picked youll be prompted to install tailscale or run the install script
+    - On Ubuntu / LXC containers, I generated an install script that looked like:
+        curl -fsSL https://tailscale.com/install.sh | sh
         tailscale up --authkey <your-auth-key> --hostname <device-name>
-        
-- On Windows:
-      - Downloaded the Tailscale client from tailscale.com/download
-      - Signed in using my Tailscale account using gmail
-      - Connected the device to my personal tailnet.
-<img src="https://github.com/user-attachments/assets/1f37db8c-de1e-4248-9760-ee6b43e26237" alt="Screenshot 2025-10-20 095541" width="600" height="300"><br>
-<img src="https://github.com/user-attachments/assets/65532b78-eefe-4a8c-80ac-3a2f97534ed8" alt="Screenshot 2025-10-20 131829" width="600" height="300"><br>
-<img src="https://github.com/user-attachments/assets/71637299-e87b-4eda-99bd-ff28ab3ce34b" alt="Screenshot 2025-10-20 135725" width="600" height="300"><br>
-<img src="https://github.com/user-attachments/assets/b2878494-7c98-4a87-abba-71ad560f59db" alt="Screenshot 2025-10-19 141059" width="600" height="300">
+<img src="TailscaleVPN/images/Screenshot%202025-10-21%20165839.png" alt="Screenshot 2025-10-21 165839" width="600" height="300">
+    - On Windows:
+        I added the device by having tailscale send a connection link to my email
+        I then downloaded tailscale on the device and connected it to my personal tailnet
+<img src="TailscaleVPN/images/Screenshot%202025-10-21%20170303.png" alt="Screenshot 2025-10-21 170303" width="600" height="300">
+
 
 ---
 
