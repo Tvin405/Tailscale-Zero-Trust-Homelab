@@ -32,8 +32,9 @@ Deployment steps
 - I made an account on tailscales offical website and then had them generate me download code based on my system
 - I began by installing Tailscale on each system in my network:
 - On Ubuntu / LXC containers:
-      curl -fsSL https://tailscale.com/install.sh | sh
-      tailscale up --authkey <your-auth-key> --hostname <device-name>
+      - curl -fsSL https://tailscale.com/install.sh | sh
+        tailscale up --authkey <your-auth-key> --hostname <device-name>
+        
 - On Windows:
       - Downloaded the Tailscale client from tailscale.com/download
       - Signed in using my Tailscale account using gmail
