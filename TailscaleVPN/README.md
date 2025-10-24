@@ -38,6 +38,10 @@ Deployment steps
       - Downloaded the Tailscale client from tailscale.com/download
       - Signed in using my Tailscale account using gmail
       - Connected the device to my personal tailnet.
+<img src="https://github.com/user-attachments/assets/1f37db8c-de1e-4248-9760-ee6b43e26237" alt="Screenshot 2025-10-20 095541" width="600" height="300"><br>
+<img src="https://github.com/user-attachments/assets/65532b78-eefe-4a8c-80ac-3a2f97534ed8" alt="Screenshot 2025-10-20 131829" width="600" height="300"><br>
+<img src="https://github.com/user-attachments/assets/71637299-e87b-4eda-99bd-ff28ab3ce34b" alt="Screenshot 2025-10-20 135725" width="600" height="300"><br>
+<img src="https://github.com/user-attachments/assets/b2878494-7c98-4a87-abba-71ad560f59db" alt="Screenshot 2025-10-19 141059" width="600" height="300">
 
 ---
 
