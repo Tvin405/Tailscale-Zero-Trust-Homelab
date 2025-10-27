@@ -122,7 +122,10 @@ This ensured all users operated under least privilege and only had access to nec
 - Rotated authentication keys for security hygiene
 - Verified key expiration and session validity
 - Monitored traffic routes and ACL policy application
-
+<img width="742" height="605" alt="Screenshot 2025-10-27 094604" src="https://github.com/user-attachments/assets/454fe66c-8ba4-4045-b6bc-c081dd6577aa" />
+  - When one of my keys expire I just run: "Sudo tailscale up" and then it gives me a link to reauth the device
+  - To force a key reset I have to revoke the key manually in the GUI and then generate a new key and apply it
+  
 ---
 
 8. End-to-End Testing
@@ -131,6 +134,8 @@ This ensured all users operated under least privilege and only had access to nec
   - Docker containers
   - Windows hosts
 - Commands like ping, dig, and curl were used to verify encrypted tunnels and hostname resolution via MagicDNS.
+<img width="646" height="178" alt="Screenshot 2025-10-27 143315" src="https://github.com/user-attachments/assets/8e1aa2cd-677f-443d-855c-28ebfdbf4e77" />
+<img width="693" height="259" alt="Screenshot 2025-10-27 143126" src="https://github.com/user-attachments/assets/0f907daa-0be7-4e41-89a6-1a6d47c66b15" />
 
 ---
 
