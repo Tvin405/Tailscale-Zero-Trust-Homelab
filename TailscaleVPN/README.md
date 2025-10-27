@@ -42,7 +42,9 @@ Technology Used
 Deployment steps
 1. Installing Tailscale
 - I made an account on tailscales offical website and started generating auth keys
-<img width="1505" height="692" alt="Screenshot 2025-10-21 165808" src="https://github.com/user-attachments/assets/115d0245-0672-40fc-b5ec-71f7144807cd" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/115d0245-0672-40fc-b5ec-71f7144807cd" alt="Screenshot 2025-10-21 165808" width="600" height="300">
+</p>
 - I began by installing Tailscale on each system in my network, by going to add device and then picking the OS system of the device
 - Based on the operating system picked youll be prompted to install tailscale or run the install script
     - On Ubuntu / LXC containers, I generated an install script that looked like:
