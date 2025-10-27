@@ -1,8 +1,8 @@
 Tailscale VPN Deployment & Zero-Trust Network Setup
 
-Author: Ty Iorfino
-Date: September - November 2025
-Tools Used: Tailscale, Proxmox VE, Pi-hole, Docker, Ubuntu Server, Windows 10/11, MagicDNS, WireGuard, ACL Policies
+- Author: Ty Iorfino
+- Date: September - November 2025
+- Tools Used: Tailscale, Proxmox VE, Pi-hole, Docker, Ubuntu Server, Windows 10/11, MagicDNS, WireGuard, ACL Policies
 
 ---
 
@@ -55,8 +55,6 @@ Deployment steps
         I then downloaded tailscale on the device and connected it to my personal tailnet
 <img width="1896" height="766" alt="Screenshot 2025-10-21 170303" src="https://github.com/user-attachments/assets/d0516e52-918e-4135-a14c-236bf92fd304" />
 
-
-
 ---
 
 2. Establishing a Secure Mesh Network
@@ -91,17 +89,20 @@ Deployment steps
 
 5. Implementing Zero-Trust with ACLs
 - Using the Tailscale Admin Console, I defined ACL rules in JSON to control access between users and devices.
-For example, administrative nodes were restricted to specific authenticated users only:
+For example, admin could access all ports and services while jellyfin could only use ports 8096,8920 and members could access:
 
-{
-  "ACLs": [
-    {
-      "Action": "accept",
-      "Users": ["ty@domain.com"],
-      "Ports": ["proxmox:22", "pihole:80"]
-    }
-  ]
-}
+"grants": [
+		// Admins: anywhere, any port
+		{
+			"src": ["group:admin"],
+			"dst": ["*"],
+			"ip":  ["*"],
+		},
+		// Members: Jellyfin web only
+		{
+			"src": ["group:member"],
+			"dst": ["tag:jellyfin"],
+			"ip":  ["*:8096", "*:8920"],
 
 This ensured all users operated under least privilege and only had access to necessary resources.
 <img width="1184" height="297" alt="Screenshot 2025-10-27 092911" src="https://github.com/user-attachments/assets/d9a27557-7a44-4b4e-acb1-ed5db04ccdac" />
@@ -112,15 +113,16 @@ This ensured all users operated under least privilege and only had access to nec
 6. Integrating with Proxmox Networking
 - I configured Proxmox virtual networks so that containerized services (LXCs and Docker containers) were reachable through the Tailscale interface.
 - This allowed remote SSH, web UI, and API access through secure tunnels without public IP exposure.
+- This can be tested by end-to-end testing using commands like ping.
 
 ---
 
 7. Admin Console & Key Management
 - I managed all devices and users through the Tailscale Admin Console:
 - Reviewed connected devices and activity
-- Rotated authentication keys for security hygiene
+- Rotated authentication keys and made sure tailscale service was updated
 - Verified key expiration and session validity
-- Monitored traffic routes and ACL policy application
+- Monitored ACL policies 
 <img width="742" height="605" alt="Screenshot 2025-10-27 094604" src="https://github.com/user-attachments/assets/454fe66c-8ba4-4045-b6bc-c081dd6577aa" />
   - When one of my keys expire I just run: "Sudo tailscale up" and then it gives me a link to reauth the device
   - To force a key reset I have to revoke the key manually in the GUI and then generate a new key and apply it
@@ -132,7 +134,7 @@ This ensured all users operated under least privilege and only had access to nec
   - Ubuntu LXCs
   - Docker containers
   - Windows hosts
-- Commands like ping, dig, and curl were used to verify encrypted tunnels and hostname resolution via MagicDNS.
+- Commands like ping and curl were used to verify encrypted tunnels and hostname resolution via MagicDNS.
 <img width="646" height="178" alt="Screenshot 2025-10-27 143315" src="https://github.com/user-attachments/assets/8e1aa2cd-677f-443d-855c-28ebfdbf4e77" />
 <img width="693" height="259" alt="Screenshot 2025-10-27 143126" src="https://github.com/user-attachments/assets/0f907daa-0be7-4e41-89a6-1a6d47c66b15" />
 
@@ -140,8 +142,8 @@ This ensured all users operated under least privilege and only had access to nec
 
 Security Outcomes
 - All VPN connections are encrypted end-to-end using WireGuard.
-- DNS-level ad-blocking through Pi-hole enhances privacy and reduces bandwidth waste.
-- Zero-Trust ACL framework enforces least privilege and limits lateral movement.
+- DNS-level ad-blocking through Pi-hole enhances privacy. 
+- Zero-Trust ACL framework enforces least privilege.
 - MagicDNS ensures reliable hostname resolution across all devices.
 - Remote management of Proxmox and local services without exposing public ports.
 
@@ -150,9 +152,11 @@ Security Outcomes
 Issues Faced
 - After the download process on my LXC container services like pihole, jellyfin, and vaultwarden I noticed the tailscale up command wouldnt work and the dashboard wouldnt show the device
 <img width="1005" height="149" alt="Screenshot 2025-10-21 180508" src="https://github.com/user-attachments/assets/15674bdc-be9c-4385-9459-5118e4da1adf" />
+
 - To fix this issue due to the service being an LXC you need to open the LXC config file while on proxmox root and add:
 <img width="648" height="65" alt="Screenshot 2025-10-21 181155" src="https://github.com/user-attachments/assets/44d3814d-a4c9-475e-93ab-237617522297" />
-      nano /etx/pve/lxc/<pctID>.conf # to enter the LXC config file
+  - nano /etx/pve/lxc/<pctID>.conf # to enter the LXC config file
+
 - After adding these lines you need to start and then stop the LXC container so the changes will take place, then run tailscale up, you should get a direct link to tailscale to connect the device, this allows the LXC to connect to the TUN
 <img width="321" height="88" alt="Screenshot 2025-10-21 181603" src="https://github.com/user-attachments/assets/a1fdd233-1280-496b-b0f6-e96fee297226" />
 <img width="361" height="115" alt="Screenshot 2025-10-21 181657" src="https://github.com/user-attachments/assets/dc43652f-16dc-49bc-a664-743c397f702a" />
@@ -160,5 +164,5 @@ Issues Faced
 ---
 
 Conclusion
-- Through this project, I built a fully encrypted, zero-trust VPN infrastructure that connects multiple environments under one secure network.
-- This setup demonstrates my ability to design, deploy, and manage modern VPN solutions using Tailscale and WireGuard, while integrating with virtualization platforms like Proxmox and enhancing privacy with Pi-hole.
+- Through this project, I deployed a fully encrypted, zero-trust VPN infrastructure that connects multiple environments under one secure network.
+- This setup demonstrates my ability to deploy and manage modern VPN solutions using Tailscale and WireGuard, while integrating with virtualization platforms like Proxmox and enhancing privacy with Pi-hole and using security postures like a zero-trust framwork. 
