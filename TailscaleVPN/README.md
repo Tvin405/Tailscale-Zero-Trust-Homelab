@@ -84,7 +84,8 @@ Deployment steps
     - Consistent network policies across devices
 <img width="361" height="95" alt="Screenshot 2025-10-27 091743" src="https://github.com/user-attachments/assets/e2757782-d21b-4737-a077-448dd0c64249" />
 <img width="989" height="221" alt="Screenshot 2025-10-22 210219" src="https://github.com/user-attachments/assets/3b73925e-1ef7-464e-b1e9-5455c57f19c8" />
-<img width="756" height="169" alt="Screenshot 2025-10-27 091934" src="https://github.com/user-attachments/assets/4be67fa5-f0c6-4c49-a43b-6414a5c124b6" />
+<img width="756" height="169" alt="Screenshot 2025-10-27 091934" src="https://github.com/user-attachments/assets/64c9798c-2e41-46af-8ed9-a7524ca4fb20" />
+
 
 ---
 
