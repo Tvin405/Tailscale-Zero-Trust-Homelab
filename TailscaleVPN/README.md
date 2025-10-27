@@ -57,14 +57,17 @@ Deployment steps
     - On Windows:
         I added the device by having tailscale send a connection link to my email
         I then downloaded tailscale on the device and connected it to my personal tailnet
-<img width="1896" height="766" alt="Screenshot 2025-10-21 170303" src="https://github.com/user-attachments/assets/d0516e52-918e-4135-a14c-236bf92fd304" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0516e52-918e-4135-a14c-236bf92fd304" alt="Screenshot 2025-10-21 170303" width="600" height="300">
+</p>
 ---
 
 2. Establishing a Secure Mesh Network
 - Once all systems were connected, Tailscale automatically formed a peer-to-peer mesh network using the WireGuard protocol.
 - This allowed every device to communicate directly and securely, even across NAT or different subnets, without manual port forwarding.
-<img width="214" height="504" alt="Screenshot 2025-10-21 170536" src="https://github.com/user-attachments/assets/e9149d84-e5ec-4768-9aaa-0bdfc5b120ca" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e9149d84-e5ec-4768-9aaa-0bdfc5b120ca" alt="Screenshot 2025-10-21 170536" width="600" height="300">
+</p>
 
 --- 
 
@@ -73,7 +76,9 @@ Deployment steps
     - Eliminated the need to remember IPs
     - Allowed access using simple hostnames like proxmox.local or pihole.local
     - Ensured cross-device consistency for DNS queries
-<img width="748" height="207" alt="Screenshot 2025-10-27 091718" src="https://github.com/user-attachments/assets/27a2f3be-4046-4dc8-8bb6-05c5a5ced7e5" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/27a2f3be-4046-4dc8-8bb6-05c5a5ced7e5" alt="Screenshot 2025-10-27 091718" width="600" height="300">
+</p>
 
 ---
 
@@ -84,10 +89,11 @@ Deployment steps
     - Encrypted browsing from remote locations
     - DNS-level ad and tracker blocking via Pi-hole
     - Consistent network policies across devices
-<img width="361" height="95" alt="Screenshot 2025-10-27 091743" src="https://github.com/user-attachments/assets/e2757782-d21b-4737-a077-448dd0c64249" />
-<img width="989" height="221" alt="Screenshot 2025-10-22 210219" src="https://github.com/user-attachments/assets/3b73925e-1ef7-464e-b1e9-5455c57f19c8" />
-<img width="756" height="169" alt="Screenshot 2025-10-27 091934" src="https://github.com/user-attachments/assets/64c9798c-2e41-46af-8ed9-a7524ca4fb20" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e2757782-d21b-4737-a077-448dd0c64249" alt="Screenshot 2025-10-27 091743" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/3b73925e-1ef7-464e-b1e9-5455c57f19c8" alt="Screenshot 2025-10-22 210219" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/64c9798c-2e41-46af-8ed9-a7524ca4fb20" alt="Screenshot 2025-10-27 091934" width="600" height="300">
+</p>
 
 ---
 
@@ -109,8 +115,10 @@ For example, admin could access all ports and services while jellyfin could only
 			"ip":  ["*:8096", "*:8920"],
 
 This ensured all users operated under least privilege and only had access to necessary resources.
-<img width="1184" height="297" alt="Screenshot 2025-10-27 092911" src="https://github.com/user-attachments/assets/d9a27557-7a44-4b4e-acb1-ed5db04ccdac" />
-<img width="1222" height="565" alt="Screenshot 2025-10-27 092943" src="https://github.com/user-attachments/assets/3fdd7965-7f63-406e-9980-83a9bba113a8" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d9a27557-7a44-4b4e-acb1-ed5db04ccdac" alt="Screenshot 2025-10-27 092911" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/3fdd7965-7f63-406e-9980-83a9bba113a8" alt="Screenshot 2025-10-27 092943" width="600" height="300">
+</p>
 
 ---
 
@@ -126,8 +134,10 @@ This ensured all users operated under least privilege and only had access to nec
 - Reviewed connected devices and activity
 - Rotated authentication keys and made sure tailscale service was updated
 - Verified key expiration and session validity
-- Monitored ACL policies 
-<img width="742" height="605" alt="Screenshot 2025-10-27 094604" src="https://github.com/user-attachments/assets/454fe66c-8ba4-4045-b6bc-c081dd6577aa" />
+- Monitored ACL policies
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/454fe66c-8ba4-4045-b6bc-c081dd6577aa" alt="Screenshot 2025-10-27 094604" width="600" height="300">
+</p>
   - When one of my keys expire I just run: "Sudo tailscale up" and then it gives me a link to reauth the device
   - To force a key reset I have to revoke the key manually in the GUI and then generate a new key and apply it
   
@@ -139,8 +149,10 @@ This ensured all users operated under least privilege and only had access to nec
   - Docker containers
   - Windows hosts
 - Commands like ping and curl were used to verify encrypted tunnels and hostname resolution via MagicDNS.
-<img width="646" height="178" alt="Screenshot 2025-10-27 143315" src="https://github.com/user-attachments/assets/8e1aa2cd-677f-443d-855c-28ebfdbf4e77" />
-<img width="693" height="259" alt="Screenshot 2025-10-27 143126" src="https://github.com/user-attachments/assets/0f907daa-0be7-4e41-89a6-1a6d47c66b15" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8e1aa2cd-677f-443d-855c-28ebfdbf4e77" alt="Screenshot 2025-10-27 143315" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/0f907daa-0be7-4e41-89a6-1a6d47c66b15" alt="Screenshot 2025-10-27 143126" width="600" height="300">
+</p>
 
 ---
 
@@ -155,15 +167,20 @@ Security Outcomes
 
 Issues Faced
 - After the download process on my LXC container services like pihole, jellyfin, and vaultwarden I noticed the tailscale up command wouldnt work and the dashboard wouldnt show the device
-<img width="1005" height="149" alt="Screenshot 2025-10-21 180508" src="https://github.com/user-attachments/assets/15674bdc-be9c-4385-9459-5118e4da1adf" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/15674bdc-be9c-4385-9459-5118e4da1adf" alt="Screenshot 2025-10-21 180508" width="600" height="300">
+</p>
 - To fix this issue due to the service being an LXC you need to open the LXC config file while on proxmox root and add:
-<img width="648" height="65" alt="Screenshot 2025-10-21 181155" src="https://github.com/user-attachments/assets/44d3814d-a4c9-475e-93ab-237617522297" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/44d3814d-a4c9-475e-93ab-237617522297" alt="Screenshot 2025-10-21 181155" width="600" height="300">
+</p>
   - nano /etx/pve/lxc/<pctID>.conf # to enter the LXC config file
 
 - After adding these lines you need to start and then stop the LXC container so the changes will take place, then run tailscale up, you should get a direct link to tailscale to connect the device, this allows the LXC to connect to the TUN
-<img width="321" height="88" alt="Screenshot 2025-10-21 181603" src="https://github.com/user-attachments/assets/a1fdd233-1280-496b-b0f6-e96fee297226" />
-<img width="361" height="115" alt="Screenshot 2025-10-21 181657" src="https://github.com/user-attachments/assets/dc43652f-16dc-49bc-a664-743c397f702a" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a1fdd233-1280-496b-b0f6-e96fee297226" alt="Screenshot 2025-10-21 181603" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/dc43652f-16dc-49bc-a664-743c397f702a" alt="Screenshot 2025-10-21 181657" width="600" height="300">
+</p>
 
 ---
 
