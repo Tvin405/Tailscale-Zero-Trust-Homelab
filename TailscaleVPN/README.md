@@ -71,6 +71,7 @@ Deployment steps
     - Eliminated the need to remember IPs
     - Allowed access using simple hostnames like proxmox.local or pihole.local
     - Ensured cross-device consistency for DNS queries
+<img width="748" height="207" alt="Screenshot 2025-10-27 091718" src="https://github.com/user-attachments/assets/27a2f3be-4046-4dc8-8bb6-05c5a5ced7e5" />
 
 ---
 
@@ -81,6 +82,9 @@ Deployment steps
     - Encrypted browsing from remote locations
     - DNS-level ad and tracker blocking via Pi-hole
     - Consistent network policies across devices
+<img width="361" height="95" alt="Screenshot 2025-10-27 091743" src="https://github.com/user-attachments/assets/e2757782-d21b-4737-a077-448dd0c64249" />
+<img width="989" height="221" alt="Screenshot 2025-10-22 210219" src="https://github.com/user-attachments/assets/3b73925e-1ef7-464e-b1e9-5455c57f19c8" />
+<img width="756" height="169" alt="Screenshot 2025-10-27 091934" src="https://github.com/user-attachments/assets/4be67fa5-f0c6-4c49-a43b-6414a5c124b6" />
 
 ---
 
@@ -99,12 +103,15 @@ For example, administrative nodes were restricted to specific authenticated user
 }
 
 This ensured all users operated under least privilege and only had access to necessary resources.
+<img width="1184" height="297" alt="Screenshot 2025-10-27 092911" src="https://github.com/user-attachments/assets/d9a27557-7a44-4b4e-acb1-ed5db04ccdac" />
+<img width="1222" height="565" alt="Screenshot 2025-10-27 092943" src="https://github.com/user-attachments/assets/3fdd7965-7f63-406e-9980-83a9bba113a8" />
 
 ---
 
 6. Integrating with Proxmox Networking
 - I configured Proxmox virtual networks so that containerized services (LXCs and Docker containers) were reachable through the Tailscale interface.
 - This allowed remote SSH, web UI, and API access through secure tunnels without public IP exposure.
+<img width="653" height="189" alt="Screenshot 2025-10-27 094304" src="https://github.com/user-attachments/assets/c4c2fa0f-92f9-4336-b283-992be787d170" />
 
 ---
 
@@ -141,7 +148,7 @@ Issues Faced
 - To fix this issue due to the service being an LXC you need to open the LXC config file while on proxmox root and add:
 <img width="648" height="65" alt="Screenshot 2025-10-21 181155" src="https://github.com/user-attachments/assets/44d3814d-a4c9-475e-93ab-237617522297" />
       nano /etx/pve/lxc/<pctID>.conf # to enter the LXC config file
-- After adding these lines you need to start and then stop the LXC container so the changes will take place, then run tailscale up, you should get a direct link to tailscale to connect the device
+- After adding these lines you need to start and then stop the LXC container so the changes will take place, then run tailscale up, you should get a direct link to tailscale to connect the device, this allows the LXC to connect to the TUN
 <img width="321" height="88" alt="Screenshot 2025-10-21 181603" src="https://github.com/user-attachments/assets/a1fdd233-1280-496b-b0f6-e96fee297226" />
 <img width="361" height="115" alt="Screenshot 2025-10-21 181657" src="https://github.com/user-attachments/assets/dc43652f-16dc-49bc-a664-743c397f702a" />
 
