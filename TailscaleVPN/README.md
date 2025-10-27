@@ -112,7 +112,6 @@ This ensured all users operated under least privilege and only had access to nec
 6. Integrating with Proxmox Networking
 - I configured Proxmox virtual networks so that containerized services (LXCs and Docker containers) were reachable through the Tailscale interface.
 - This allowed remote SSH, web UI, and API access through secure tunnels without public IP exposure.
-<img width="653" height="189" alt="Screenshot 2025-10-27 094304" src="https://github.com/user-attachments/assets/c4c2fa0f-92f9-4336-b283-992be787d170" />
 
 ---
 
