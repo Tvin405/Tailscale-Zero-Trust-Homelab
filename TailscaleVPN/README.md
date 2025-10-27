@@ -50,8 +50,10 @@ Deployment steps
     - On Ubuntu / LXC containers, I generated an install script that looked like:
         curl -fsSL https://tailscale.com/install.sh | sh
         tailscale up --authkey <your-auth-key> --hostname <device-name>
-<img width="1287" height="1262" alt="Screenshot 2025-10-21 165839" src="https://github.com/user-attachments/assets/78e103f6-89e8-4f70-95ed-ed04d424ec4d" />
-<img width="1002" height="129" alt="Screenshot 2025-10-21 180425" src="https://github.com/user-attachments/assets/86c08c47-3904-4f76-ae3c-5f1a5a2f42d7" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/78e103f6-89e8-4f70-95ed-ed04d424ec4d" alt="Screenshot 2025-10-21 165839" width="600" height="300"><br>
+  <img src="https://github.com/user-attachments/assets/86c08c47-3904-4f76-ae3c-5f1a5a2f42d7" alt="Screenshot 2025-10-21 180425" width="600" height="300">
+</p>
     - On Windows:
         I added the device by having tailscale send a connection link to my email
         I then downloaded tailscale on the device and connected it to my personal tailnet
