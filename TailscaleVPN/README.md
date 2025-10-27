@@ -66,7 +66,7 @@ Deployment steps
 - Once all systems were connected, Tailscale automatically formed a peer-to-peer mesh network using the WireGuard protocol.
 - This allowed every device to communicate directly and securely, even across NAT or different subnets, without manual port forwarding.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e9149d84-e5ec-4768-9aaa-0bdfc5b120ca" alt="Screenshot 2025-10-21 170536" width="600" height="300">
+  <img src="https://github.com/user-attachments/assets/e9149d84-e5ec-4768-9aaa-0bdfc5b120ca" alt="Screenshot 2025-10-21 170536" width="600" height="600">
 </p>
 
 --- 
