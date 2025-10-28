@@ -138,6 +138,7 @@ This ensured all users operated under least privilege and only had access to nec
 <p align="center">
   <img src="https://github.com/user-attachments/assets/454fe66c-8ba4-4045-b6bc-c081dd6577aa" alt="Screenshot 2025-10-27 094604" width="600" height="300">
 </p>
+
 - When one of my keys expire I just run: "Sudo tailscale up" and then it gives me a link to reauth the device
 	- To force a key reset I have to revoke the key manually in the GUI and then generate a new key and apply it
 - Managed updates making sure systems were utilizing recent features and patches
